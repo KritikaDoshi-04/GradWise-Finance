@@ -14,7 +14,7 @@ public class Main {
             System.out.println("3. Find Financial Aid");
             System.out.println("4. Decode Loan Types");
             System.out.println("5. Exit");
-            System.out.print("_ ");
+            System.out.println("_");
 
             int choice = scanner.nextInt();
 
@@ -67,24 +67,21 @@ public class Main {
                     System.out.printf("Remaining Budget: $%.2f\n", budget.calculateRemainingBudget());
                     break;
 
-                case 3:
-                    scanner.nextLine(); // Consume leftover newline
-                    System.out.print("Describe your financial aid needs (e.g., first-gen low-income STEM student): ");
-                    String userQuery = scanner.nextLine();
 
+                case 3:
                     AidFinder aidFinder = new AidFinder();
-                    aidFinder.listScholarships(userQuery);
+                    aidFinder.listScholarships();
                     break;
 
-                case 4:
-                    scanner.nextLine(); // Consume leftover newline
+                case 5:
                     System.out.print("Enter loan type (subsidized/unsubsidized/private): ");
+                    scanner.nextLine(); // Consume newline
                     String loanType = scanner.nextLine();
                     DebtDecoder decoder = new DebtDecoder();
                     decoder.explainLoanType(loanType);
                     break;
 
-                case 5:
+                case 6:
                     running = false;
                     System.out.println("Thank you for using GradWise Finance!");
                     break;
@@ -96,4 +93,4 @@ public class Main {
 
         scanner.close();
     }
-}
+} 
